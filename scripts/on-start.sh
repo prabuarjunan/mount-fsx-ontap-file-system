@@ -15,7 +15,7 @@ set -e
 #   4. Set the FSX_MOUNT_NAME parameter below to the Mount name of the FSx for NetApp Ontap file system.
 
 # PARAMETERS
-FSXo_DNS_NAME=198.19.255.64
+FSXo_DNS_NAME=IPaddress/DNS
 FSXo_MOUNT_NAME=fsx
 
 # First, we need to install the ontap-client libraries
