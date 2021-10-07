@@ -19,7 +19,7 @@ FSXo_DNS_NAME=198.19.255.64
 FSXo_MOUNT_NAME=fsx
 
 # First, we need to install the ontap-client libraries
-sudo yum install -y lustre-client
+sudo yum install -y ontap-client
 
 # Now we can create the mount point and mount the file system
 sudo mkdir /fsx
