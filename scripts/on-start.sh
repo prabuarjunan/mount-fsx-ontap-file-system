@@ -20,7 +20,8 @@ FSXo_MOUNT_NAME=fsx
 SVM_NAME=svm-0123456 #<Enter the SVM ID>
 FSXo_ID=fs-0123456 #<Enter the FSX for NetApp Ontap ID>
 
-# First, we need to install the ontap-client libraries
+# First, we need to install the nfs-client libraries
+sudo yum install -y nfs-utils
 
 # Now we can create the mount point and mount the file system
 sudo mkdir /fsx
