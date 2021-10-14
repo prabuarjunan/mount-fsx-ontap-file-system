@@ -4,7 +4,7 @@ set -e
 
 # OVERVIEW
 # This script mounts a FSx for ontap file system to the Notebook Instance at the /fsx directory based off
-# the DNS/IP address and Mount name parameters.
+# the IP address and Mount name parameters.
 #
 # This script assumes the following:
 #   1. There's an FSx for NetApp Ontap file system created and running
@@ -15,10 +15,14 @@ set -e
 #   4. Set the FSXo_MOUNT_NAME parameter below to the Mount name of the FSx for NetApp Ontap file system.
 
 # PARAMETERS
-FSXo_DNS_NAME=IPaddress/DNS #<Enter the IP address of the FSX for NetApp Ontap file system>
-FSXo_MOUNT_NAME=fsx
+FSXo_DNS_NAME=IPaddress #<Enter the IP address of the FSX for NetApp Ontap file system>
+FSXo_MOUNT_NAME=fsx  #<Enter the mount point name>
 SVM_NAME=svm-0123456 #<Enter the SVM ID>
-FSXo_ID=fs-0123456 #<Enter the FSX for NetApp Ontap ID>
+FSXo_ID=fs-0123456   #<Enter the FSX for NetApp Ontap ID>
+
+#add the route to the notebook instance.
+sudo route add -net <CIDR> dev eth2 #<Enter the CIDR range of the FSX for NetApp Ontap file system NFS IP range>
+
 
 # First, we need to install the nfs-client libraries
 sudo yum install -y nfs-utils
