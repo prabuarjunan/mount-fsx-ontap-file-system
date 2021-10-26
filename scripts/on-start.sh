@@ -34,3 +34,16 @@ sudo mount -t nfs FSXo_DNS_NAME:/vol1 /fsx
 
 # Let's make sure we have the appropriate access to the directory
 sudo chmod go+rw /fsx
+
+#  The toolkit requires an ONTAP account with API access. The toolkit will use this account to access the ONTAP API. NetApp recommends using an SVM-level account.
+#  Copy the JSON file created using the following steps from getting started step in the link https://github.com/NetApp/netapp-dataops-toolkit/tree/main/netapp_dataops_traditional
+#  required for the API access
+#  Change the hostname, SVM, dataLif, password accordingly. Example: "hostname": "198.19.0.0", "svm": "test-svm", "dataLif": "198.19.0.0", "password": "TmV0QXBwMTIz"
+
+json='{ "ONTAP", "hostname": "Enter Your Hostname here", "svm": "Enter your SVM name here", "dataLif": "Enter your DataLif IP here", "defaultVolumeType": "flexgroup", "defaultExportPolicy": "default",
+"defaultSnapshotPolicy": "none", "defaultUnixUID": "0", "defaultUnixGID": "0", "defaultUnixPermissions": "0777", "defaultAggregate": "aggr1", "username": "vsadmin",
+"password": "Enter your password here", "verifySSLCert": false}' | jq '.'
+mkdir ./.netapp_dataops/
+echo $json >> ./.netapp_dataops/config.json
+
+
