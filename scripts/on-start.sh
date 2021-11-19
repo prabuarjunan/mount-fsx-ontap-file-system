@@ -45,5 +45,8 @@ json='{ "ONTAP", "hostname": "Enter Your Hostname here", "svm": "Enter your SVM 
 "password": "Enter your password here", "verifySSLCert": false}' | jq '.'
 mkdir ./.netapp_dataops/
 echo $json >> ./.netapp_dataops/config.json
+#test commit
+
+
 
 
